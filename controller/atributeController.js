@@ -2,8 +2,8 @@ import { db } from '../models/index.js';
 import { atributesModel } from '../models/atributesSchema.js';
 
 const findAll = async (req, res) => {
-    const nameReq = req.body.name;
-    console.log(nameReq)
+   const nameReq = req.query.name;
+    console.log("Nome: " + nameReq);
   
    /*  //condicao para o filtro no findAll
     var condition = name
