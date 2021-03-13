@@ -38,6 +38,9 @@ app.use(atributeRouter);
 app.get('/', (req, res) => {
   res.send('API em execucao');
 });
+const PORT = process.env.PORT;
 
-app.listen(PORT = process.env.PORT || 8080 || 8081, () => {});
+console.log(`Listening on ${ PORT }`);
+
+app.listen(PORT || 8080 || 8081, () => {});
 
