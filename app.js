@@ -27,11 +27,15 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
+
+app.use( (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+	//Quais são os métodos que a conexão pode realizar na API
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
   cors({
     origin: 'https://os-sem-floresta-api.herokuapp.com/',
   })
-);
+});
 
 app.use(atributeRouter);
 
