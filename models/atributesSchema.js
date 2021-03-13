@@ -10,6 +10,10 @@ const atributesSchema = new mongoose.Schema({
   mira: { type: Number, require: true },
   oficio: { type: Number, require: true },
   percepcao: { type: Number, require: true },
+  nascimento: { type: String, require: true },
+  oficio_base: { type: String, require: true },
+  oficio_pre_base: { type: String, require: true },
+  jogador: { type: String, require: true },
 });
 
 const atributesModel = mongoose.model('Messias', atributesSchema, 'Messias');
