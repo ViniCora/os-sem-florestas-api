@@ -22,4 +22,27 @@ const findAll = async (req, res) => {
     }
   };
 
-export default {findAll};
+  const updateVida = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const vida = req.body.vida;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{vida : vida}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+export default {findAll, updateVida};
