@@ -12,7 +12,6 @@ const findAll = async (req, res) => {
   
     try {
       const atributes = await atributesModel.find({'name': nameReq});
-      console.log(atributes);
       res.send(atributes);
     } catch (error) {
       res
