@@ -30,12 +30,12 @@ const findAll = async (req, res) => {
   
     const id = req.params.id;
 
-    const vida = req.body.vida;
+    const value = req.body.value;
   
     try {
       const newAtribute = await atributesModel.findByIdAndUpdate(
         { _id: id },
-        {$set :{vida : vida}},
+        {$set :{vida : value}},
         { new: true }
       );
       res.send(newAtribute);
@@ -44,4 +44,189 @@ const findAll = async (req, res) => {
     }
   };
 
-export default {findAll, updateVida};
+  const updateForca = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{força : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateDestreza = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{destreza : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateCarisma = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{carisma : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateInteligente = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{inteligencia : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateResistencia = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{resistencia : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateMira= async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{mira : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateOficio = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{oficio : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updatePercepcao = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{percepcao : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+
+export default {findAll, updateVida, updateForca, updateDestreza, updateCarisma, updateInteligente, updateResistencia, updateMira, updateOficio, updatePercepcao};
