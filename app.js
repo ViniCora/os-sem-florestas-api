@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors()
 );
-
+app.use('/uploads',express.static('uploads'));
 app.use(atributeRouter);
 
 app.get('/', (req, res) => {

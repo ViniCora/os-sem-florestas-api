@@ -1,10 +1,21 @@
-import { db } from '../models/index.js';
 import { atributesModel } from '../models/atributesSchema.js';
 
 const findAll = async (req, res) => {
+ 
+   try {
+     const atributes = await atributesModel.find({});
+     res.send(atributes);
+   } catch (error) {
+     res
+       .status(500)
+       .send({ message: error.message || 'Erro ao listar todos os atributos' });
+     
+   }
+ };
+
+const findAtributeByName = async (req, res) => {
    const nameReq = req.query.name;
-    console.log("Nome: " + nameReq);
-  
+     
    /*  //condicao para o filtro no findAll
     var condition = name
       ? { name: { $regex: new RegExp(name), $options: 'i' } }
@@ -36,6 +47,29 @@ const findAll = async (req, res) => {
       const newAtribute = await atributesModel.findByIdAndUpdate(
         { _id: id },
         {$set :{vida : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
+  const updateMostrarTela = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{mostrar_tela : value}},
         { new: true }
       );
       res.send(newAtribute);
@@ -229,4 +263,4 @@ const findAll = async (req, res) => {
   };
 
 
-export default {findAll, updateVida, updateForca, updateDestreza, updateCarisma, updateInteligente, updateResistencia, updateMira, updateOficio, updatePercepcao};
+export default {findAll, findAtributeByName, updateVida, updateMostrarTela, updateForca, updateDestreza, updateCarisma, updateInteligente, updateResistencia, updateMira, updateOficio, updatePercepcao};
