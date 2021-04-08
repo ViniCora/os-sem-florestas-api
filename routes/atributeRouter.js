@@ -35,6 +35,7 @@ app.post('/players/',upload.single('playerImage') ,(req, res) => {
               nascimento: req.body.nascimento,
               força: req.body.força,
               destreza: req.body.destreza,
+              carisma: req.body.carisma,
               inteligencia: req.body.destreza,
               resistencia: req.body.resisntecia,
               mira: req.body.mira,
