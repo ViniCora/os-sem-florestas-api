@@ -101,6 +101,29 @@ const findAtributeByName = async (req, res) => {
     }
   };
 
+  const updateValueAdicionar = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+  
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await atributesModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{pontos_adicionar : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
   const updateDestreza = async (req, res) => {
     if (!req.body) {
       return res.status(400).send({
@@ -263,4 +286,4 @@ const findAtributeByName = async (req, res) => {
   };
 
 
-export default {findAll, findAtributeByName, updateVida, updateMostrarTela, updateForca, updateDestreza, updateCarisma, updateInteligente, updateResistencia, updateMira, updateOficio, updatePercepcao};
+export default {findAll, findAtributeByName, updateVida, updateMostrarTela, updateForca, updateValueAdicionar ,updateDestreza, updateCarisma, updateInteligente, updateResistencia, updateMira, updateOficio, updatePercepcao};

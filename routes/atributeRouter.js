@@ -17,8 +17,6 @@ const app = express();
 app.get('/players/', controller.findAll);
 
 app.post('/players/',upload.single('playerImage') ,(req, res) => {
-    console.log(req.file);
-    console.log(req.body);
     var path = null;
     if(req.file == null){
         path = '';
@@ -42,6 +40,7 @@ app.post('/players/',upload.single('playerImage') ,(req, res) => {
               oficio: req.body.oficio,
               percepcao: req.body.percepcao,
               vida: 100,
+              pontos_adicionar: 0,
               mostrar_tela: req.body.mostrar_tela,
               imagePath: path
           }
@@ -64,6 +63,8 @@ app.put('/atributes/mostrarTela/:id', controller.updateMostrarTela);
 app.put('/atributes/forca/:id', controller.updateForca);
 
 app.put('/atributes/destreza/:id', controller.updateDestreza);
+
+app.put('/atributes/pontosAdicionar/:id', controller.updateValueAdicionar);
 
 app.put('/atributes/carisma/:id', controller.updateCarisma);
 

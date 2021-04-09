@@ -18,7 +18,8 @@ const atributesSchema = new mongoose.Schema({
   jogador: { type: String, require: true },
   vida: { type: Number, require: true },
   mostrar_tela : { type : Boolean, require: true },
-  imagePath: { type: String, require: true } 
+  imagePath: { type: String, require: true },
+  pontos_adicionar: {type: Number, requires: true}
 });
 
 const atributesModel = mongoose.model('Messias', atributesSchema, 'Messias');
