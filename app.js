@@ -3,7 +3,10 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import { db } from './models/index.js';
-import { atributeRouter } from './routes/atributeRouter.js';
+import { playerRouter } from './routes/playerRouter.js';
+import { npcRouter } from './routes/npcRouter.js';
+import { constantesRouter } from './routes/constantesRouter.js';
+import { iniciativaRouter } from './routes/iniciativaRouter.js';
 
 (async () => {
   try {
@@ -31,7 +34,10 @@ app.use(
   cors()
 );
 app.use('/uploads',express.static('uploads'));
-app.use(atributeRouter);
+app.use(playerRouter);
+app.use(npcRouter);
+app.use(iniciativaRouter);
+app.use(constantesRouter);
 
 app.get('/', (req, res) => {
   res.send('API em execucao');

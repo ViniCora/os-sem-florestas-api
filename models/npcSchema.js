@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 mongoose.set('useFindAndModify', false);
 
-const atributesSchema = new mongoose.Schema({
+const npcSchema = new mongoose.Schema({
   name: { type: String, require: true },
   força: { type: Number, require: true },
   destreza: { type: Number, require: true },
@@ -22,6 +22,6 @@ const atributesSchema = new mongoose.Schema({
   pontos_adicionar: {type: Number, requires: true}
 });
 
-const atributesModel = mongoose.model('Messias', atributesSchema, 'Messias');
+const npcModel = mongoose.model('NPC', npcSchema, 'NPC');
 
-export { atributesModel };
+export { npcModel };

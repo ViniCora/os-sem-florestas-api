@@ -1,9 +1,9 @@
-import { atributesModel } from '../models/atributesSchema.js';
+import { playerModel } from '../models/playerSchema.js';
 
 const findAll = async (req, res) => {
  
    try {
-     const atributes = await atributesModel.find({});
+     const atributes = await playerModel.find({});
      res.send(atributes);
    } catch (error) {
      res
@@ -22,7 +22,7 @@ const findAtributeByName = async (req, res) => {
       : {}; */
   
     try {
-      const atributes = await atributesModel.find({'name': nameReq});
+      const atributes = await playerModel.find({'name': nameReq});
       res.send(atributes);
     } catch (error) {
       res
@@ -44,7 +44,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{vida : value}},
         { new: true }
@@ -67,7 +67,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{mostrar_tela : value}},
         { new: true }
@@ -90,7 +90,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{força : value}},
         { new: true }
@@ -113,7 +113,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{pontos_adicionar : value}},
         { new: true }
@@ -136,7 +136,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{destreza : value}},
         { new: true }
@@ -159,7 +159,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{carisma : value}},
         { new: true }
@@ -182,7 +182,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{inteligencia : value}},
         { new: true }
@@ -205,7 +205,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{resistencia : value}},
         { new: true }
@@ -228,7 +228,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{mira : value}},
         { new: true }
@@ -251,7 +251,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{oficio : value}},
         { new: true }
@@ -274,7 +274,7 @@ const findAtributeByName = async (req, res) => {
     const value = req.body.value;
   
     try {
-      const newAtribute = await atributesModel.findByIdAndUpdate(
+      const newAtribute = await playerModel.findByIdAndUpdate(
         { _id: id },
         {$set :{percepcao : value}},
         { new: true }

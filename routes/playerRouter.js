@@ -1,30 +1,17 @@
 import express from 'express';
-import controller from '../controller/atributeController.js';
-import { atributesModel } from '../models/atributesSchema.js';
-import multer from 'multer';
+import controller from '../controller/playerController.js';
+import { playerModel } from '../models/playerSchema.js';
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb){
-        cb(null, './uploads');
-    },
-    filename: function(req, file, cb){
-        cb(null, file.originalname);
-    }
-});
-const upload = multer({storage: storage});
 const app = express();
 
 app.get('/players/', controller.findAll);
 
-app.post('/players/',upload.single('playerImage') ,(req, res) => {
-    var path = null;
-    if(req.file == null){
-        path = '';
-    }else{
-        path = req.file.path;
-    }
+app.post('/players/',(req, res) => {
+
+    console.log(req.body);
+    
     try {
-      const personagem = new atributesModel(
+      const personagem = new playerModel(
           {
               name: req.body.name,
               jogador: req.body.jogador,
@@ -42,11 +29,11 @@ app.post('/players/',upload.single('playerImage') ,(req, res) => {
               vida: 100,
               pontos_adicionar: 0,
               mostrar_tela: req.body.mostrar_tela,
-              imagePath: path
+              imagePath: ''
           }
       );  
       personagem.save();
-      res.send('Personagem inserido com sucesso');
+      res.send(personagem);
     } catch (error) {
       res
         .status(500)
@@ -79,4 +66,4 @@ app.put('/atributes/oficio/:id', controller.updateOficio);
 app.put('/atributes/percepcao/:id', controller.updatePercepcao);
 
 
-export { app as atributeRouter };
+export { app as playerRouter };
