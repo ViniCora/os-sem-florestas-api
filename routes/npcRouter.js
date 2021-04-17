@@ -37,7 +37,7 @@ app.post('/npc/',(req, res) => {
     }
   });
 
-app.get('/npc/', controller.findAtributeByName);
+app.get('/atributeNpc/', controller.findAtributeByName);
 
 app.put('/npc/vida/:id', controller.updateVida);
 
