@@ -7,6 +7,7 @@ import { playerRouter } from './routes/playerRouter.js';
 import { npcRouter } from './routes/npcRouter.js';
 import { constantesRouter } from './routes/constantesRouter.js';
 import { iniciativaRouter } from './routes/iniciativaRouter.js';
+import { rollsRouter } from './routes/rollsRouter.js';
 
 (async () => {
   try {
@@ -38,6 +39,7 @@ app.use(playerRouter);
 app.use(npcRouter);
 app.use(iniciativaRouter);
 app.use(constantesRouter);
+app.use(rollsRouter);
 
 app.get('/', (req, res) => {
   res.send('API em execucao');
