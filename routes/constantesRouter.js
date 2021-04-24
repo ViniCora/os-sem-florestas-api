@@ -5,5 +5,6 @@ const app = express();
 
 app.get('/constantes', controller.findAtributeByName);
 
+app.put('/constantes', controller.findAtributeByNameAndUpdate);
 
 export { app as constantesRouter };
