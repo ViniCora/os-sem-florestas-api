@@ -26,6 +26,7 @@ app.post('/players/',(req, res) => {
               mira: req.body.mira,
               oficio: req.body.oficio,
               percepcao: req.body.percepcao,
+              radioatividade: 100,
               vida: 100,
               pontos_adicionar: 0,
               mostrar_tela: req.body.mostrar_tela,
@@ -42,6 +43,8 @@ app.post('/players/',(req, res) => {
   });
 
 app.get('/atributes/', controller.findAtributeByName);
+
+app.put('/atributes/radioatividade/:id', controller.updateRadioatividade);
 
 app.put('/atributes/vida/:id', controller.updateVida);
 

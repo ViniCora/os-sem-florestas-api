@@ -55,6 +55,29 @@ const findAtributeByName = async (req, res) => {
     }
   };
 
+  const updateRadioatividade = async (req, res) => {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'Dados para atualizacao vazio',
+      });
+    }
+
+    const id = req.params.id;
+
+    const value = req.body.value;
+  
+    try {
+      const newAtribute = await playerModel.findByIdAndUpdate(
+        { _id: id },
+        {$set :{radioatividade : value}},
+        { new: true }
+      );
+      res.send(newAtribute);
+    } catch (error) {
+      res.status(500).send({ message: 'Erro ao atualizar o personagem de id: ' + id });
+    }
+  };
+
   const updateMostrarTela = async (req, res) => {
     if (!req.body) {
       return res.status(400).send({
@@ -286,4 +309,5 @@ const findAtributeByName = async (req, res) => {
   };
 
 
-export default {findAll, findAtributeByName, updateVida, updateMostrarTela, updateForca, updateValueAdicionar ,updateDestreza, updateCarisma, updateInteligente, updateResistencia, updateMira, updateOficio, updatePercepcao};
+export default {findAll, findAtributeByName, updateVida, updateMostrarTela, updateForca, updateValueAdicionar ,updateDestreza, updateCarisma, updateInteligente, 
+  updateResistencia, updateMira, updateOficio, updatePercepcao, updateRadioatividade};

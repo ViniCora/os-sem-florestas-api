@@ -16,6 +16,7 @@ const playerSchema = new mongoose.Schema({
   oficio_base: { type: String, require: true },
   oficio_pre_base: { type: String, require: true },
   jogador: { type: String, require: true },
+  radioatividade: { type: Number, require: true },
   vida: { type: Number, require: true },
   mostrar_tela : { type : Boolean, require: true },
   imagePath: { type: String, require: true },
